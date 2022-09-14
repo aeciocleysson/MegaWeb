@@ -1,0 +1,51 @@
+﻿@page "/"
+@inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
+@inject IJSRuntime JsRuntime
+@using MegaWeb.Shared.Models
+
+<div class="alert alert-secondary mt-4" role="alert">
+    <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
+    <strong>Relação de Funções</strong>
+</div>
+
+<p>
+    <a href="/addfuncao" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">+ Adicionar</a>
+</p>
+
+@if (funcoes == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Data Cadastro</th>
+                <th>Excluido</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var funcao in funcoes)
+            {
+            <tr>
+                <td>@funcao.Id</td>
+                <td>@funcao.Descricao</td>
+                <td>@funcao.Inserted</td>
+                <td>@funcao.IsDelete</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code{
+    List<Funcao> funcoes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        funcoes = await funcaoService.GetAll();
+    }
+}

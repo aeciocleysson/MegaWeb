@@ -1,0 +1,27 @@
+﻿@page "/addfuncao"
+@inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
+@inject NavigationManager NavigationManager
+@using MegaWeb.Shared.Models
+
+<FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="SaveFuncao" Cancel="Cancelar" />
+
+@code {
+    Funcao Funcao = new Funcao();
+    List<Funcao> funcoes;
+
+    public async Task SaveFuncao()
+    {
+        await funcaoService.Insert(Funcao);
+        NavigationManager.NavigateTo("/");
+    }
+
+    public void Cancelar()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        funcoes = await funcaoService.GetAll();
+    }
+}

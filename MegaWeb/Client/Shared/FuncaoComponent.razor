@@ -1,0 +1,40 @@
+﻿@using MegaWeb.Shared.Models
+
+<h1>@Title</h1>
+
+<EditForm Model="@Funcao" OnValidSubmit="@TriggerOnSave">
+    <DataAnnotationsValidator />
+    <div class="form-group">
+        <label for="descricaoId">Descrição</label>
+        <input type="text" @bind-value="Funcao.Descricao" class="form-control" id="descricaoId" aria-describedby="descricao" placeholder="Digite uma descrição" />
+        <ValidationMessage For="@(() => Funcao.Descricao)" />
+    </div>
+    <br />
+    <button @onclick="TriggerOnCancel" class="btn btn-danger">Cancelar</button>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public Funcao Funcao { get; set; }
+
+    [Parameter]
+    public EventCallback Save { get; set; }
+
+    [Parameter]
+    public EventCallback Cancel { get; set; }
+
+    public async Task TriggerOnSave()
+    {
+        await Save.InvokeAsync();
+    }
+
+    public async Task TriggerOnCancel()
+    {
+        await Cancel.InvokeAsync();
+    }
+}
