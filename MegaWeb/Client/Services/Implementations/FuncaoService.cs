@@ -1,4 +1,5 @@
 ﻿using MegaWeb.Client.Services.Interfaces;
+using MegaWeb.Shared.Map;
 using MegaWeb.Shared.Models;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -16,14 +17,14 @@ namespace MegaWeb.Client.Services.Implementations
             _httpClient = httpClient;
         }
 
-        public async Task<List<Funcao>> GetAll()
+        public async Task<List<FuncaoDto>> GetAll()
         {
-            return await _httpClient.GetFromJsonAsync<List<Funcao>>("api/funcao");
+            return await _httpClient.GetFromJsonAsync<List<FuncaoDto>>("api/funcao");
         }
 
-        public async Task Insert(Funcao funcao)
+        public async Task Insert(FuncaoDto funcao)
         {
-            await _httpClient.PostAsJsonAsync<Funcao>("api/funcao", funcao);
+            await _httpClient.PostAsJsonAsync<FuncaoDto>("api/funcao", funcao);
         }
     }
 }

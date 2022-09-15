@@ -1,4 +1,4 @@
-﻿@using MegaWeb.Shared.Models
+﻿@using MegaWeb.Shared.Map
 
 <h1>@Title</h1>
 
@@ -10,8 +10,8 @@
         <ValidationMessage For="@(() => Funcao.Descricao)" />
     </div>
     <br />
-    <button @onclick="TriggerOnCancel" class="btn btn-danger">Cancelar</button>
-    <button class="btn btn-primary" type="submit">Salvar</button>
+    <button type="button" class="btn btn-outline-danger" @onclick="TriggerOnCancel">Cancelar</button>
+    <button type="submit" class="btn btn-outline-primary">Salvar</button>
 </EditForm>
 
 @code {
@@ -20,7 +20,7 @@
     public string Title { get; set; }
 
     [Parameter]
-    public Funcao Funcao { get; set; }
+    public FuncaoDto Funcao { get; set; }
 
     [Parameter]
     public EventCallback Save { get; set; }

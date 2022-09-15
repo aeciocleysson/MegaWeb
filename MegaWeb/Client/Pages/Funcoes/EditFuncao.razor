@@ -1,0 +1,40 @@
+﻿@page "/editfuncao/{funcaoId}"
+@inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
+@inject NavigationManager NavigationManager
+@using MegaWeb.Shared.Map
+
+<FuncaoComponent Title="Editar Função" Funcao="Funcao" Save="Save" Cancel="Cancelar" />
+
+@code {
+    [Parameter]
+    public string funcaoId { get; set; }
+
+    FuncaoDto Funcao = new();
+    List<FuncaoDto> funcoes;
+
+    public async Task Save()
+    {
+        var result = funcoes.FirstOrDefault(w => w.Id.ToString() == funcaoId);
+
+        result.Edit(Funcao.Descricao);
+
+        await funcaoService.Insert(result);
+
+        NavigationManager.NavigateTo("/");
+    }
+
+    public void Cancelar()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        funcoes = await funcaoService.GetAll();
+
+        if (funcoes.Count.Equals(0))
+            return;
+
+        Funcao = funcoes.FirstOrDefault(w => w.Id.ToString() == funcaoId);
+    }
+}

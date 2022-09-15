@@ -13,5 +13,10 @@
         {
 
         }
+
+        public void Edit(string descricao)
+        {
+            Descricao = descricao;
+        }
     }
 }

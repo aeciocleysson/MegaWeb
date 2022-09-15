@@ -1,5 +1,6 @@
 using MegaWeb.Server.Configuration.Dependencies;
 using MegaWeb.Server.Context;
+using MegaWeb.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +33,8 @@ namespace MegaWeb.Server
                 options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
             services.AddDependenciesInjection(Configuration);
+            services.AddDependencieAutoMapper(Configuration);
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

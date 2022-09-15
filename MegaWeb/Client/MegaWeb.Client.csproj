@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Funcoes\EditFuncao.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.17" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
@@ -13,6 +17,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Shared\MegaWeb.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Funcoes\EditFuncao.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Funcoes\EditFuncao.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Funcoes\EditFuncao.razor" />
   </ItemGroup>
 
 </Project>

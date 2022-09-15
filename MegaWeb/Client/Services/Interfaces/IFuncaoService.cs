@@ -1,4 +1,5 @@
-﻿using MegaWeb.Shared.Models;
+﻿using MegaWeb.Shared.Map;
+using MegaWeb.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -6,8 +7,8 @@ namespace MegaWeb.Client.Services.Interfaces
 {
     public interface IFuncaoService
     {
-        Task<List<Funcao>> GetAll();
+        Task<List<FuncaoDto>> GetAll();
 
-        Task Insert(Funcao funcao);
+        Task Insert(FuncaoDto funcao);
     }
 }

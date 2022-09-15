@@ -1,13 +1,13 @@
 ﻿@page "/addfuncao"
 @inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
 @inject NavigationManager NavigationManager
-@using MegaWeb.Shared.Models
+@using MegaWeb.Shared.Map
 
 <FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="SaveFuncao" Cancel="Cancelar" />
 
 @code {
-    Funcao Funcao = new Funcao();
-    List<Funcao> funcoes;
+    FuncaoDto Funcao = new();
+    List<FuncaoDto> funcoes;
 
     public async Task SaveFuncao()
     {

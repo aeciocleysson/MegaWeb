@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
 @inject IJSRuntime JsRuntime
-@using MegaWeb.Shared.Models
+@using MegaWeb.Shared.Map
 
 <div class="alert alert-secondary mt-4" role="alert">
     <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
@@ -25,6 +25,7 @@ else
                 <th>Descrição</th>
                 <th>Data Cadastro</th>
                 <th>Excluido</th>
+                <th>Opções</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,10 @@ else
                 <td>@funcao.Descricao</td>
                 <td>@funcao.Inserted</td>
                 <td>@funcao.IsDelete</td>
+                <td>
+                    <a href="/editfuncao/@funcao.Id" class="btn btn-info" role="button" aria-pressed="true">Editar</a>
+                    @*<a href="#" @onclick="async () => await DeleteCustomer(customer.Id)">Deletar</a>*@
+                </td>
             </tr>
             }
         </tbody>
@@ -42,7 +47,7 @@ else
 }
 
 @code{
-    List<Funcao> funcoes;
+    List<FuncaoDto> funcoes;
 
     protected override async Task OnInitializedAsync()
     {
