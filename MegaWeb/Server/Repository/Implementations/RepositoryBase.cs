@@ -41,11 +41,16 @@ namespace MegaWeb.Server.Repository.Interfaces
             return await _context.Set<TEntity>().FindAsync(id);
         }
 
-        public async Task<bool> Remove(TEntity entity)
+        public async Task<bool> Remove(int id)
         {
             try
             {
-                _context.Set<TEntity>().Remove(entity);
+                var result = await _context.Set<TEntity>().SingleOrDefaultAsync(w => w.Id == id);
+
+                if (result == null)
+                    return false;
+
+                _context.Set<TEntity>().Remove(result);
                 await _context.SaveChangesAsync();
 
                 return true;
@@ -60,15 +65,19 @@ namespace MegaWeb.Server.Repository.Interfaces
         {
             try
             {
-                _context.Entry(entity).State = EntityState.Modified;
-                await _context.SaveChangesAsync();
+                var result = await _context.Set<TEntity>().SingleOrDefaultAsync(w => w.Id == entity.Id);
 
-                return entity;
+                if (result == null)
+                    return null;
+
+                _context.Entry(result).CurrentValues.SetValues(entity);
+                await _context.SaveChangesAsync();
             }
             catch (Exception ex)
             {
                 throw ex.InnerException;
             }
+            return entity;
         }
     }
 }

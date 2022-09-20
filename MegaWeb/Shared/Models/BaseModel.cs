@@ -6,7 +6,7 @@ namespace MegaWeb.Shared.Models
     public abstract class BaseModel
     {
         [Key]
-        public int Id { get; private set; }
+        public int Id { get;  set; }
 
         public DateTime Inserted { get; set; }
 

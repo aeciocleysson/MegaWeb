@@ -92,15 +92,15 @@ namespace MegaWeb.Server.Controllers
             }
         }
 
-        [HttpDelete()]
-        public async Task<ActionResult> Delete([FromBody] Funcao funcao)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             try
             {
-                return Ok(await _service.Remove(funcao));
+                return Ok(await _service.Remove(id));
             }
             catch (ArgumentException ex)
             {

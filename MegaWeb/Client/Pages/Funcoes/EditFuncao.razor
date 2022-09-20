@@ -1,26 +1,21 @@
-﻿@page "/editfuncao/{funcaoId}"
+﻿@page "/editfuncao"
 @inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
 @inject NavigationManager NavigationManager
 @using MegaWeb.Shared.Map
 
-<FuncaoComponent Title="Editar Função" Funcao="Funcao" Save="Save" Cancel="Cancelar" />
+<FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="UpdateFuncao" Cancel="Cancelar" />
 
 @code {
     [Parameter]
-    public string funcaoId { get; set; }
+    public int id { get; set; }
 
     FuncaoDto Funcao = new();
-    List<FuncaoDto> funcoes;
+    List<FuncaoDto> Funcoes;
 
-    public async Task Save()
+    public async Task UpdateFuncao()
     {
-        var result = funcoes.FirstOrDefault(w => w.Id.ToString() == funcaoId);
 
-        result.Edit(Funcao.Descricao);
-
-        await funcaoService.Insert(result);
-
-        NavigationManager.NavigateTo("/");
+        await funcaoService.GetById(id);
     }
 
     public void Cancelar()
@@ -28,13 +23,14 @@
         NavigationManager.NavigateTo("/");
     }
 
-    protected override async Task OnInitializedAsync()
+    protected  override async Task OnInitializedAsync()
     {
-        funcoes = await funcaoService.GetAll();
+        Funcoes = await funcaoService.GetAll();
 
-        if (funcoes.Count.Equals(0))
+        if (Funcoes.Count == 0)
             return;
 
-        Funcao = funcoes.FirstOrDefault(w => w.Id.ToString() == funcaoId);
+        Funcao = Funcoes.FirstOrDefault(w => w.Id == id);
     }
+
 }

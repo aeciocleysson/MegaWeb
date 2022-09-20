@@ -30,9 +30,9 @@ namespace MegaWeb.Server.Services.Implementations
             return await _repository.GetById(id);
         }
 
-        public async Task<bool> Remove(TEntity entity)
+        public async Task<bool> Remove(int id)
         {
-            return await _repository.Remove(entity);
+            return await _repository.Remove(id);
         }
 
         public async Task<TEntity> Update(TEntity entity)

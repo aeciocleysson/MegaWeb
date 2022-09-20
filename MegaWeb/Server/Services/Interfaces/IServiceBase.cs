@@ -14,6 +14,6 @@ namespace MegaWeb.Server.Services.Interfaces
 
         Task<TEntity> Update(TEntity entity);
 
-        Task<bool> Remove(TEntity entity);
+        Task<bool> Remove(int id);
     }
 }

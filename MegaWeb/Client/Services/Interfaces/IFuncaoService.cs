@@ -1,5 +1,4 @@
 ﻿using MegaWeb.Shared.Map;
-using MegaWeb.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,5 +9,8 @@ namespace MegaWeb.Client.Services.Interfaces
         Task<List<FuncaoDto>> GetAll();
 
         Task Insert(FuncaoDto funcao);
+
+        Task<FuncaoDto> GetById(int id);
+        Task Delete(int id);
     }
 }
