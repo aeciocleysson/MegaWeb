@@ -71,8 +71,8 @@ namespace MegaWeb.Server.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Put([FromBody] Funcao funcao)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(int funcaoid, Funcao funcao)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

@@ -1,4 +1,4 @@
-﻿@page "/editfuncao"
+﻿@page "/editfuncao/{id}"
 @inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
 @inject NavigationManager NavigationManager
 @using MegaWeb.Shared.Map
@@ -7,15 +7,18 @@
 
 @code {
     [Parameter]
-    public int id { get; set; }
+    public string id { get; set; }
 
     FuncaoDto Funcao = new();
     List<FuncaoDto> Funcoes;
 
     public async Task UpdateFuncao()
     {
+        await funcaoService.GetById(Convert.ToInt32(id));
 
-        await funcaoService.GetById(id);
+        Funcao.Edit(Funcao.Descricao);
+        await funcaoService.Update(Funcao);
+        NavigationManager.NavigateTo("/");
     }
 
     public void Cancelar()
@@ -30,7 +33,7 @@
         if (Funcoes.Count == 0)
             return;
 
-        Funcao = Funcoes.FirstOrDefault(w => w.Id == id);
+        Funcao = Funcoes.FirstOrDefault(w => w.Id == Convert.ToInt32(id));
     }
 
 }

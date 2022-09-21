@@ -11,6 +11,7 @@ namespace MegaWeb.Client.Services.Interfaces
         Task Insert(FuncaoDto funcao);
 
         Task<FuncaoDto> GetById(int id);
+        Task<FuncaoDto> Update(FuncaoDto funcao);
         Task Delete(int id);
     }
 }
