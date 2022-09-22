@@ -38,7 +38,7 @@ else
                     <td>@funcao.Inserted</td>
                     <td>@funcao.IsDelete</td>
                     <td>
-                        <a href="editfuncao/@funcao.Id" class="btn btn-info" role="button" aria-pressed="true">Editar</a>
+                        <a href="/editfuncao/@funcao.Id" class="btn btn-info" role="button" aria-pressed="true">Editar</a>
                         <a href="#" class="btn btn-danger" role="button" aria-pressed="true" @onclick="async () => await Delete(funcao.Id)">Deletar</a>
                     </td>
                 </tr>
@@ -62,11 +62,11 @@ else
         if (confirmed is false)
             return;
 
-        var funcao = funcoes.FirstOrDefault(w => w.Id == id);
+        var funcao = await funcaoService.GetById(id);
 
         await funcaoService.Delete(funcao.Id);
 
-        await funcaoService.GetAll();
-        NavigationManager.NavigateTo("/");
+        funcoes = await funcaoService.GetAll();
+        StateHasChanged();
     }
 }

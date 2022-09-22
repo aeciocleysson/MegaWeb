@@ -10,13 +10,9 @@
     public string id { get; set; }
 
     FuncaoDto Funcao = new();
-    List<FuncaoDto> Funcoes;
 
     public async Task UpdateFuncao()
     {
-        await funcaoService.GetById(Convert.ToInt32(id));
-
-        Funcao.Edit(Funcao.Descricao);
         await funcaoService.Update(Funcao);
         NavigationManager.NavigateTo("/");
     }
@@ -26,14 +22,8 @@
         NavigationManager.NavigateTo("/");
     }
 
-    protected  override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {
-        Funcoes = await funcaoService.GetAll();
-
-        if (Funcoes.Count == 0)
-            return;
-
-        Funcao = Funcoes.FirstOrDefault(w => w.Id == Convert.ToInt32(id));
+        Funcao = await funcaoService.GetById(int.Parse(id));
     }
-
 }
