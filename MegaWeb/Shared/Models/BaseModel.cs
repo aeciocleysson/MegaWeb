@@ -6,7 +6,7 @@ namespace MegaWeb.Shared.Models
     public abstract class BaseModel
     {
         [Key]
-        public int Id { get;  set; }
+        public int Id { get; set; }
 
         public DateTime Inserted { get; set; }
 
@@ -15,7 +15,7 @@ namespace MegaWeb.Shared.Models
 
         public BaseModel()
         {
-            Inserted = DateTime.Today;
+            Inserted = DateTime.Now;
             IsDelete = false;
         }
     }

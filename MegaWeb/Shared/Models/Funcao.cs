@@ -2,7 +2,7 @@
 {
     public class Funcao : BaseModel
     {
-        public string Descricao { get;  set; }
+        public string Descricao { get; set; }
 
         public Funcao(string descricao)
         {
@@ -11,12 +11,6 @@
 
         public Funcao()
         {
-
-        }
-
-        public void Edit(string descricao)
-        {
-            Descricao = descricao;
         }
     }
 }

@@ -38,7 +38,7 @@ namespace MegaWeb.Client.Services.Implementations
 
         public async Task<FuncaoDto> Update(FuncaoDto funcao)
         {
-            HttpResponseMessage response = _httpClient.PutAsJsonAsync($"api/funcao/{funcao.Id}", funcao).Result;
+            var response = await _httpClient.PutAsJsonAsync($"api/funcao/{funcao.Id}", funcao);
             return response.Content.ReadFromJsonAsync<FuncaoDto>().Result;
         }
     }

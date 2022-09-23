@@ -1,6 +1,7 @@
 ﻿using MegaWeb.Server.Repository.Interfaces;
 using MegaWeb.Server.Services.Interfaces;
 using MegaWeb.Shared.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -37,6 +38,8 @@ namespace MegaWeb.Server.Services.Implementations
 
         public async Task<TEntity> Update(TEntity entity)
         {
+            entity.UpdateAt = DateTime.Now;
+
             return await _repository.Update(entity);
         }
     }
