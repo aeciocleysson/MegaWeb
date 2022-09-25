@@ -21,6 +21,9 @@ namespace MegaWeb.Server.Configuration.Dependencies
             service.AddScoped<IFuncaoRepository, FuncaoRepository>();
             service.AddScoped<IServiceFuncao, ServiceFuncao>();
 
+            service.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+            service.AddScoped<IServiceFuncionario, ServiceFuncionario>();
+
             return service;
         }
     }

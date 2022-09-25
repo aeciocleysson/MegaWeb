@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
-using MegaWeb.Shared.Models;
+using MegaWeb.Shared.Map;
 
 namespace MegaWeb.Server.Validators
 {
-    public class FuncaoValidator : AbstractValidator<Funcao>
+    public class FuncaoValidator : AbstractValidator<FuncaoDto>
     {
         public FuncaoValidator()
         {
