@@ -1,5 +1,6 @@
 ﻿using MegaWeb.Server.Services.Interfaces;
-using MegaWeb.Shared.Models;
+using MegaWeb.Shared.DTO;
+using MegaWeb.Shared.Map;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
@@ -21,9 +22,6 @@ namespace MegaWeb.Server.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
             try
             {
                 return Ok(await _service.GetAll());
@@ -34,12 +32,9 @@ namespace MegaWeb.Server.Controllers
             }
         }
 
-        [HttpGet("{id}", Name = "GetWithId")]
+        [HttpGet("{id}", Name = "GetWithIdFuncao")]
         public async Task<ActionResult> Get(int id)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
             try
             {
                 return Ok(await _service.GetById(id));
@@ -51,19 +46,15 @@ namespace MegaWeb.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] Funcao funcao)
+        public async Task<ActionResult> Post([FromBody] FuncaoDto funcao)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
             try
             {
-                var result = await _service.Add(funcao);
+                if (funcao == null)
+                    return NotFound();
 
-                if (result != null)
-                    return Created(new Uri(Url.Link("GetWithId", new { id = result.Id })), result);
-                else
-                    return BadRequest();
+                await _service.Add(funcao);
+                return Ok("Cliente Cadastrado com sucesso!");
             }
             catch (ArgumentException ex)
             {
@@ -71,8 +62,8 @@ namespace MegaWeb.Server.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int funcaoid, Funcao funcao)
+        [HttpPut]
+        public async Task<ActionResult> Put([FromBody] FuncaoDtoUpdate funcao)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

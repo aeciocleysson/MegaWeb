@@ -36,7 +36,6 @@ else
                     <td>@funcao.Id</td>
                     <td>@funcao.Descricao</td>
                     <td>@funcao.Inserted</td>
-                    <td>@funcao.IsDelete</td>
                     <td>
                         <a href="/editfuncao/@funcao.Id" class="btn btn-info" role="button" aria-pressed="true">Editar</a>
                         <a href="#" class="btn btn-danger" role="button" aria-pressed="true" @onclick="async () => await Delete(funcao.Id)">Deletar</a>
