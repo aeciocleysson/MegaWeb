@@ -8,10 +8,10 @@ namespace MegaWeb.Shared.Map
         public string Descricao { get; set; }
         public DateTime Inserted { get; set; }
 
-        public FuncaoDto()
-        {
-            Inserted = DateTime.Now;
-        }
+        //public FuncaoDto()
+        //{
+        //    Inserted = DateTime.Now;
+        //}
 
         public void Edit(string descricao)
         {

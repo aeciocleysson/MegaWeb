@@ -7,9 +7,7 @@ namespace MegaWeb.Shared.Map
     {
         public FuncaoDtoToFuncaoModel()
         {
-            CreateMap<FuncaoDto, Funcao>()
-                .ForMember(dest => dest.Id, opt => opt.Ignore())
-                .ForMember(dest => dest.Descricao, opt => opt.MapFrom(x => x.Descricao));
+            CreateMap<FuncaoDto, Funcao>().ReverseMap();
         }
     }
 }
