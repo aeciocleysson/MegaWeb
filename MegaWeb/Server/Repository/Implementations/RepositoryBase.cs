@@ -1,11 +1,12 @@
 ﻿using MegaWeb.Server.Context;
+using MegaWeb.Server.Repository.Interfaces;
 using MegaWeb.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MegaWeb.Server.Repository.Interfaces
+namespace MegaWeb.Server.Repository.Implementations
 {
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : BaseModel
     {

@@ -1,5 +1,5 @@
 ﻿using MegaWeb.Client.Services.Interfaces;
-using MegaWeb.Shared.Map;
+using MegaWeb.Shared.DTO.FuncaoDtos;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;

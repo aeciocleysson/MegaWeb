@@ -1,6 +1,5 @@
 ﻿using MegaWeb.Server.Services.Interfaces;
-using MegaWeb.Shared.DTO;
-using MegaWeb.Shared.Map;
+using MegaWeb.Shared.DTO.FuncaoDtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;

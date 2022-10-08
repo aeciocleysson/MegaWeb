@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using MegaWeb.Shared.Map;
+using MegaWeb.Shared.DTO.FuncaoDtos;
 
 namespace MegaWeb.Server.Validators
 {

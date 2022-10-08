@@ -2,9 +2,8 @@
 
 namespace MegaWeb.Shared.Models
 {
-    public class SituacaoFuncionario
+    public class SituacaoFuncionario : BaseModel
     {
-        public int Id { get; set; }
         public string Descricao { get; set; }
         public List<Funcionario> Funcionario { get; set; } = new List<Funcionario>();
     }

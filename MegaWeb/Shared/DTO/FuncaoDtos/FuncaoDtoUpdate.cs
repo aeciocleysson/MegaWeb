@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MegaWeb.Shared.DTO
+namespace MegaWeb.Shared.DTO.FuncaoDtos
 {
     public class FuncaoDtoUpdate
     {

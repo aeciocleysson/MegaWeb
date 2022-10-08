@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 using MegaWeb.Server.Repository.Interfaces;
 using MegaWeb.Server.Services.Interfaces;
-using MegaWeb.Shared.DTO;
-using MegaWeb.Shared.Map;
+using MegaWeb.Shared.DTO.FuncaoDtos;
 using MegaWeb.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;

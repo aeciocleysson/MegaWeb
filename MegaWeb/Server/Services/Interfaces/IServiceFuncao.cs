@@ -1,5 +1,4 @@
-﻿using MegaWeb.Shared.DTO;
-using MegaWeb.Shared.Map;
+﻿using MegaWeb.Shared.DTO.FuncaoDtos;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

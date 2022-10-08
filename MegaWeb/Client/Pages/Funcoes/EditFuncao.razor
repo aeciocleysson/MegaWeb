@@ -1,7 +1,7 @@
 ﻿@page "/editfuncao/{id}"
 @inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
 @inject NavigationManager NavigationManager
-@using MegaWeb.Shared.Map
+@using MegaWeb.Shared.DTO.FuncaoDtos
 
 <FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="UpdateFuncao" Cancel="Cancelar" />
 

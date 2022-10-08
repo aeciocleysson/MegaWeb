@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MegaWeb.Shared.Map
+namespace MegaWeb.Shared.DTO.FuncaoDtos
 {
     public class FuncaoDto
     {
