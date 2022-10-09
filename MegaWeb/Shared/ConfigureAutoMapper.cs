@@ -1,5 +1,6 @@
 ﻿using MegaWeb.Shared.Map;
 using MegaWeb.Shared.Map.SituacaoFuncionarioMaps;
+using MegaWeb.Shared.Map.StatusMaps;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +15,7 @@ namespace MegaWeb.Shared
             service.AddAutoMapper(typeof(FuncaoDtoToFuncaoModelUpdate));
 
             service.AddAutoMapper(typeof(SituacaoFuncionarioDtoToSituacaoFuncionarioModel));
+            service.AddAutoMapper(typeof(StatusLancamentoPontoDtoToStatusLancamentroPontoModel));
 
             return service;
         }

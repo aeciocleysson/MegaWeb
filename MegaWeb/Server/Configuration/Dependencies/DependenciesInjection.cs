@@ -14,15 +14,28 @@ namespace MegaWeb.Server.Configuration.Dependencies
     {
         public static IServiceCollection AddDependenciesInjection(this IServiceCollection service, IConfiguration configuration)
         {
+            #region Validações
+
             service.AddFluentValidationAutoValidation();
-            service.AddValidatorsFromAssemblyContaining<FuncaoValidator>();
+            service.AddValidatorsFromAssemblyContaining<FuncaoValidator>(); 
+            service.AddValidatorsFromAssemblyContaining<StatusLancamentoPontoValidator>(); 
+
+            #endregion Validações
+
+            #region Repositorios
 
             service.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             service.AddScoped<IFuncaoRepository, FuncaoRepository>();
-            service.AddScoped<IServiceFuncao, ServiceFuncao>();
+            service.AddScoped<IStatusLancamentoPontoRepository, StatusLancamentoPontoRepository>();
 
-            service.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
-            service.AddScoped<IServiceFuncionario, ServiceFuncionario>();
+            #endregion Repositorios
+
+            #region Services
+
+            service.AddScoped<IServiceFuncao, ServiceFuncao>();
+            service.AddScoped<IServiceStatusLancamentoPonto, ServiceStatusLancamentoPonto>();
+
+            #endregion Services
 
             return service;
         }

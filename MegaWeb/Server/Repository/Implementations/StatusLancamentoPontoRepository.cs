@@ -4,11 +4,11 @@ using MegaWeb.Shared.Models;
 
 namespace MegaWeb.Server.Repository.Implementations
 {
-    public class FuncionarioRepository : RepositoryBase<Funcionario>, IFuncionarioRepository
+    public class StatusLancamentoPontoRepository : RepositoryBase<StatusLancamentoPonto>, IStatusLancamentoPontoRepository
     {
         private readonly MegaContext _context;
 
-        public FuncionarioRepository(MegaContext context) : base(context)
+        public StatusLancamentoPontoRepository(MegaContext context) : base(context)
         {
             _context = context;
         }

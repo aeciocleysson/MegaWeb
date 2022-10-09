@@ -2,7 +2,7 @@
 
 namespace MegaWeb.Server.Repository.Interfaces
 {
-    public interface IFuncionarioRepository : IRepositoryBase<Funcionario>
+    public interface IStatusLancamentoPontoRepository : IRepositoryBase<StatusLancamentoPonto>
     {
     }
 }
