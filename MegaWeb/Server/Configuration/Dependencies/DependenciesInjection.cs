@@ -18,7 +18,6 @@ namespace MegaWeb.Server.Configuration.Dependencies
 
             service.AddFluentValidationAutoValidation();
             service.AddValidatorsFromAssemblyContaining<FuncaoValidator>(); 
-            service.AddValidatorsFromAssemblyContaining<StatusLancamentoPontoValidator>(); 
 
             #endregion Validações
 
@@ -33,7 +32,6 @@ namespace MegaWeb.Server.Configuration.Dependencies
             #region Services
 
             service.AddScoped<IServiceFuncao, ServiceFuncao>();
-            service.AddScoped<IServiceStatusLancamentoPonto, ServiceStatusLancamentoPonto>();
 
             #endregion Services
 
