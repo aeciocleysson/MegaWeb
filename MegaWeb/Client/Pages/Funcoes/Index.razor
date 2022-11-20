@@ -3,6 +3,7 @@
 @inject IJSRuntime JsRuntime
 @inject NavigationManager NavigationManager
 @using MegaWeb.Shared.DTO.FuncaoDtos
+@using MegaWeb.Shared.Response
 
 <div class="alert alert-secondary mt-4" role="alert">
     <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
@@ -35,7 +36,6 @@ else
                 <tr>
                     <td>@funcao.Id</td>
                     <td>@funcao.Descricao</td>
-                    <td>@funcao.Inserted</td>
                     <td>
                         <a href="/editfuncao/@funcao.Id" class="btn btn-info" role="button" aria-pressed="true">Editar</a>
                         <a href="#" class="btn btn-danger" role="button" aria-pressed="true" @onclick="async () => await Delete(funcao.Id)">Deletar</a>
@@ -56,8 +56,8 @@ else
 }
 
 @code{
-    List<FuncaoDto> funcoes;
-    FuncaoDto funcao = new FuncaoDto();
+    List<FuncaoResponse> funcoes;
+    FuncaoResponse funcao = new FuncaoResponse();
 
     protected override async Task OnInitializedAsync()
     {

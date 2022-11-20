@@ -2,12 +2,13 @@
 @inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
 @inject NavigationManager NavigationManager
 @using MegaWeb.Shared.DTO.FuncaoDtos
+@using MegaWeb.Shared.Response
 
-<FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="SaveFuncao" Cancel="Cancelar" />
+@*<FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="SaveFuncao" Cancel="Cancelar" />*@
 
 @code {
     FuncaoDto Funcao = new();
-    List<FuncaoDto> funcoes;
+    List<FuncaoResponse> funcoes;
 
     public async Task SaveFuncao()
     {

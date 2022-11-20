@@ -3,6 +3,6 @@
     public class FuncaoResponse
     {
         public int Id { get; set; }
-        public string Descicao { get; set; }
+        public string Descricao { get; set; }
     }
 }
