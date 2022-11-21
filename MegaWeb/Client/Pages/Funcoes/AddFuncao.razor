@@ -1,18 +1,36 @@
 ﻿@page "/addfuncao"
 @inject MegaWeb.Client.Services.Interfaces.IFuncaoService funcaoService
 @inject NavigationManager NavigationManager
-@using MegaWeb.Shared.DTO.FuncaoDtos
 @using MegaWeb.Shared.Response
+@using MegaWeb.Shared.Request
 
 @*<FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="SaveFuncao" Cancel="Cancelar" />*@
 
+<h1>Cadastro de Funções</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="Descricao" class="control-label">Descrição</label>
+                <input fornm="Descricao" class="form-control" @bind="@funcao.Descricao"/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" @onclick="@(async () => await SaveFuncao())">Salvar</button>
+                <button class="btn btn-danger" @onclick=@Cancelar>Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 @code {
-    FuncaoDto Funcao = new();
+    FuncaoRequest funcao = new();
     List<FuncaoResponse> funcoes;
 
     public async Task SaveFuncao()
     {
-        await funcaoService.Insert(Funcao);
+        await funcaoService.Insert(funcao);
         NavigationManager.NavigateTo("/");
     }
 

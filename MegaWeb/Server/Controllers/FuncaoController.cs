@@ -1,5 +1,6 @@
 ﻿using MegaWeb.Server.Services.Interfaces;
 using MegaWeb.Shared.DTO.FuncaoDtos;
+using MegaWeb.Shared.Request;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
@@ -45,7 +46,7 @@ namespace MegaWeb.Server.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] FuncaoDto funcao)
+        public async Task<ActionResult> Post([FromBody] FuncaoRequest funcao)
         {
             try
             {

@@ -3,6 +3,7 @@ using MegaWeb.Server.Repository.Interfaces;
 using MegaWeb.Server.Services.Interfaces;
 using MegaWeb.Shared.DTO.FuncaoDtos;
 using MegaWeb.Shared.Models;
+using MegaWeb.Shared.Request;
 using MegaWeb.Shared.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -20,11 +21,13 @@ namespace MegaWeb.Server.Services.Implementations
             _mapper = mapper;
         }
 
-        public async Task<FuncaoDto> Add(FuncaoDto entity)
+        public async Task<FuncaoResponse> Add(FuncaoRequest entity)
         {
             var funcao = _mapper.Map<Funcao>(entity);
             await _repository.Add(funcao);
-            return entity;
+
+            var response = _mapper.Map<FuncaoResponse>(funcao);
+            return response;
         }
 
         public async Task<List<FuncaoResponse>> GetAll()

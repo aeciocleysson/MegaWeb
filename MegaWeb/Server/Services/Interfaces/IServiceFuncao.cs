@@ -1,4 +1,5 @@
 ﻿using MegaWeb.Shared.DTO.FuncaoDtos;
+using MegaWeb.Shared.Request;
 using MegaWeb.Shared.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ namespace MegaWeb.Server.Services.Interfaces
 {
     public interface IServiceFuncao
     {
-        Task<FuncaoDto> Add(FuncaoDto entity);
+        Task<FuncaoResponse> Add(FuncaoRequest entity);
 
         Task<List<FuncaoResponse>> GetAll();
 

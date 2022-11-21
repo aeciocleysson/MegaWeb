@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MegaWeb.Shared.Models;
+using MegaWeb.Shared.Request;
 using MegaWeb.Shared.Response;
 
 namespace MegaWeb.Shared.Map.FuncaoMaps
@@ -14,6 +15,7 @@ namespace MegaWeb.Shared.Map.FuncaoMaps
         private void Funcao()
         {
             CreateMap<Funcao, FuncaoResponse>();
+            CreateMap<FuncaoRequest, Funcao>();
         }
     }
 }
