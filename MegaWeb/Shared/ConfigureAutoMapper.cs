@@ -1,5 +1,4 @@
 ﻿using MegaWeb.Shared.Map;
-using MegaWeb.Shared.Map.FuncaoMaps;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,7 +10,8 @@ namespace MegaWeb.Shared
         {
             service.AddAutoMapper(typeof(FuncaoDtoToFuncaoModel));
             service.AddAutoMapper(typeof(FuncaoModelToFuncaoDto));
-            service.AddAutoMapper(typeof(FuncaoDtoToFuncaoModelUpdate));
+            service.AddAutoMapper(typeof(FuncaoDtoToFuncaoModelUpdate));           
+
 
             service.AddAutoMapper(typeof(Core));
 

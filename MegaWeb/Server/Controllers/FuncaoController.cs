@@ -50,7 +50,7 @@ namespace MegaWeb.Server.Controllers
         {
             try
             {
-                if (funcao == null)
+                if (!ModelState.IsValid)
                     return NotFound();
 
                 await _service.Add(funcao);

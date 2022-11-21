@@ -4,25 +4,25 @@
 @using MegaWeb.Shared.Response
 @using MegaWeb.Shared.Request
 
-@*<FuncaoComponent Title="Cadastro de Funções" Funcao="Funcao" Save="SaveFuncao" Cancel="Cancelar" />*@
-
 <h1>Cadastro de Funções</h1>
 <hr />
 
-<div class="row">
-    <div class="col-md-4">
-        <form>
+<EditForm Model="@funcao" OnValidSubmit="@SaveFuncao">
+    <DataAnnotationsValidator />
+    <div class="row">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="Descricao" class="control-label">Descrição</label>
-                <input fornm="Descricao" class="form-control" @bind="@funcao.Descricao"/>
+                <input fornm="Descricao" class="form-control" @bind-value="funcao.Descricao" />
+                <ValidationMessage For="@(() => funcao.Descricao)" />
             </div>
             <div class="form-group">
                 <button type="submit" class="btn btn-success" @onclick="@(async () => await SaveFuncao())">Salvar</button>
                 <button class="btn btn-danger" @onclick=@Cancelar>Cancelar</button>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</EditForm>
 
 @code {
     FuncaoRequest funcao = new();
@@ -30,8 +30,14 @@
 
     public async Task SaveFuncao()
     {
-        await funcaoService.Insert(funcao);
-        NavigationManager.NavigateTo("/");
+        if (funcao.Descricao != null)
+        {
+            await funcaoService.Insert(funcao);
+        }
+        else
+        {
+            return;
+        }
     }
 
     public void Cancelar()
