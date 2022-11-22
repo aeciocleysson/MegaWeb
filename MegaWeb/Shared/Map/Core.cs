@@ -14,7 +14,7 @@ namespace MegaWeb.Shared.Map
 
         private void Funcao()
         {
-            CreateMap<Funcao, FuncaoResponse>();
+            CreateMap<Funcao, FuncaoResponse>().ReverseMap();
             CreateMap<FuncaoRequest, Funcao>();
         }
     }

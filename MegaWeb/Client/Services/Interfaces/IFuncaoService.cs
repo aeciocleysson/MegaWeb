@@ -1,5 +1,4 @@
-﻿using MegaWeb.Shared.DTO.FuncaoDtos;
-using MegaWeb.Shared.Request;
+﻿using MegaWeb.Shared.Request;
 using MegaWeb.Shared.Response;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,8 +11,10 @@ namespace MegaWeb.Client.Services.Interfaces
 
         Task Insert(FuncaoRequest funcao);
 
-        Task<FuncaoDto> GetById(int id);
-        Task<FuncaoDto> Update(FuncaoDto funcao);
+        Task<FuncaoResponse> GetById(int id);
+
+        Task<FuncaoResponse> Update(FuncaoResponse funcao);
+
         Task Delete(int id);
     }
 }

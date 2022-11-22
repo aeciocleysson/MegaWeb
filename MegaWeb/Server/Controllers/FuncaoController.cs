@@ -1,6 +1,6 @@
 ﻿using MegaWeb.Server.Services.Interfaces;
-using MegaWeb.Shared.DTO.FuncaoDtos;
 using MegaWeb.Shared.Request;
+using MegaWeb.Shared.Response;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Net;
@@ -63,7 +63,7 @@ namespace MegaWeb.Server.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] FuncaoDtoUpdate funcao)
+        public async Task<ActionResult> Put([FromBody] FuncaoResponse funcao)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

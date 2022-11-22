@@ -1,5 +1,4 @@
 ﻿using MegaWeb.Client.Services.Interfaces;
-using MegaWeb.Shared.DTO.FuncaoDtos;
 using MegaWeb.Shared.Request;
 using MegaWeb.Shared.Response;
 using System.Collections.Generic;
@@ -28,9 +27,9 @@ namespace MegaWeb.Client.Services.Implementations
             return await _httpClient.GetFromJsonAsync<List<FuncaoResponse>>("api/funcao");
         }
 
-        public async Task<FuncaoDto> GetById(int id)
+        public async Task<FuncaoResponse> GetById(int id)
         {
-            return await _httpClient.GetFromJsonAsync<FuncaoDto>($"api/funcao/{id}");
+            return await _httpClient.GetFromJsonAsync<FuncaoResponse>($"api/funcao/{id}");
         }
 
         public async Task Insert(FuncaoRequest funcao)
@@ -38,10 +37,10 @@ namespace MegaWeb.Client.Services.Implementations
             await _httpClient.PostAsJsonAsync<FuncaoRequest>("api/funcao", funcao);
         }
 
-        public async Task<FuncaoDto> Update(FuncaoDto funcao)
+        public async Task<FuncaoResponse> Update(FuncaoResponse funcao)
         {
             var response = await _httpClient.PutAsJsonAsync($"api/funcao/", funcao);
-            return response.Content.ReadFromJsonAsync<FuncaoDto>().Result;
+            return response.Content.ReadFromJsonAsync<FuncaoResponse>().Result;
         }
     }
 }

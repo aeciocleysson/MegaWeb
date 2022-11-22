@@ -1,4 +1,4 @@
-﻿@using MegaWeb.Shared.DTO.FuncaoDtos
+﻿@using MegaWeb.Shared.Request
 
 <h1>@Title</h1>
 
@@ -20,7 +20,7 @@
     public string Title { get; set; }
 
     [Parameter]
-    public FuncaoDto Funcao { get; set; }
+    public FuncaoRequest Funcao { get; set; }
 
     [Parameter]
     public EventCallback Save { get; set; }
