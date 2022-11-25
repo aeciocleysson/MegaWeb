@@ -10,12 +10,18 @@ namespace MegaWeb.Shared.Map
         public Core()
         {
             Funcao();
+            SituacaoFuncionario();
         }
 
         private void Funcao()
         {
             CreateMap<Funcao, FuncaoResponse>().ReverseMap();
             CreateMap<FuncaoRequest, Funcao>();
+        }
+
+        private void SituacaoFuncionario()
+        {
+            CreateMap<SituacaoFuncionario, SituacaoFuncionarioResponse>().ReverseMap();
         }
     }
 }
